@@ -1,0 +1,35 @@
+{
+  "name": "awake-heroku",
+  "version": "1.0.5",
+  "description": "A package help your heroku app is always runs ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangpl/awake-heroku.git"
+  },
+  "keywords": [
+    "awake",
+    "heroku",
+    "get",
+    "up",
+    "heroku",
+    "heroku",
+    "always",
+    "run",
+    "dont",
+    "stop",
+    "heroku"
+  ],
+  "author": "quangpl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quangpl/awake-heroku/issues"
+  },
+  "homepage": "https://github.com/quangpl/awake-heroku#readme",
+  "dependencies": {
+    "axios": "^0.19.1"
+  }
+}
