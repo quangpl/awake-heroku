@@ -8,7 +8,6 @@ class Heroku {
     this.interval = undefined;
   }
   start() {
-    (() => {
       if (!this.appName) {
         console.error(
           "Your app name is invalid. Please declare it in constructor of awake-heroku"
@@ -35,7 +34,6 @@ class Heroku {
           console.error("Your app name is invalid");
         }
       }, this.time);
-    })();
   }
 
   setAppName(name) {
