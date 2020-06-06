@@ -1,6 +1,6 @@
 {
   "name": "awake-heroku",
-  "version": "1.0.11",
+  "version": "1.0.16",
   "description": "A package help your heroku app is always runs ",
   "main": "build/index.js",
   "scripts": {

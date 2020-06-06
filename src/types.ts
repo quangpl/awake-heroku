@@ -1,7 +1,7 @@
 export interface IAppInfo {
     id?: number;
     url: string;
-    lastHeartBeat: number;
+    lastHeartBeat?: number;
 }
 export interface IAwakeService {
     listApp: IAppInfo[];
