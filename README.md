@@ -1,84 +1,55 @@
-
-  
-
 # Awake-Heroku
-
-  
-
 ## Installation
 
-  
+ - Install [Node.js](http://nodejs.org/) 
+ - ```$ npm install awake-heroku --save```
 
-First install [Node.js](http://nodejs.org/) . Then:
 
-  
+### Types
+**IAppInfo**
+|Field  |Required  | Type | Description
+|--|--|--|--|
+| id | false | number| Unique ID 
+| url | true | string | Your URL you want wakeup
+| lastHeartBeat | false |number | Last time wakeup
 
-```$ npm install awake-heroku --save```
-
-## Importing
-
-```
-
-// Using Node.js `require()`
-
-const AwakeHeroku = require('awake-heroku');
-
-```
-
-  
+**IAwakeService**
+|Field    | Type | Description
+|--|--|--|--|
+| listApp  | IAppInfo[]| List heroku applications (app)
+| add  | void | Add new herou app to wakeup
+| remove  |void | Remove heroku app and stop wakeup that
+| show  |void | Get info heroku app by id
+| showAll  |void | Get all info heroku apps
+| awake  |void |Wakeup heroku app
 
 ## Usage
-*Insert under code to your index file of your project such as : app.js, index.js, root.js , ...* 
 
+*Insert under code to  index file of your project such as : app.js, index.js, root.js , ...*
+
+#### When you want awake 1 heroku application
+```
+const { AwakeHeroku } = require('awake-heroku');
+
+AwakeService.add({
+	url: "https://your-app-name.herokuapp.com"
+})
+```
+#### When you want awake more heroku applications
+```
+const { AwakeHeroku } = require('awake-heroku');
+
+AwakeService.add({
+	url: "https://your-app-name1.herokuapp.com"
+})
+AwakeService.add({
+	url: "https://your-app-name2.herokuapp.com"
+})
+AwakeService.add({
+	url: "https://your-app-name3.herokuapp.com"
+})
 ```
 
-// Using Node.js
 
-const AwakeHeroku = require('awake-heroku');
-
-const awakeHeroku = new AwakeHeroku("your-app-name","period-time")
-
-//your-app-name.herokuapp.com
-
-//period-time : it's time you want to wakeup your heroku app
-
-//Start auto wakeup
-
-awakeHeroku.start();
-
-```
-
-  
-
-## Another functions
-
-```
-// Using Node.js
-
-const AwakeHeroku = require('awake-heroku');
-
-const awakeHeroku = new AwakeHeroku("your-app-name","period-time")
-
-//your-app-name.herokuapp.com
-
-//period-time : it's time you want to wakeup your heroku app
-
-  
-
-//Start auto wakeup
-awakeHeroku.start();
-
-
-//Stop auto wakeup
-awakeHeroku.stop();
-
-//Set new app name
-awakeHeroku.setAppName("new-app-name");
-
-//Setnew peirod time
-awakeHeroku.setTime("new-period-time");
-
-  
-  
-
-```
+## CLI
+*Comming soon*
