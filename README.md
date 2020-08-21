@@ -1,3 +1,4 @@
+
 # Awake-Heroku
 
 ## Installation
@@ -88,9 +89,12 @@ url: "https://your-app-name3.herokuapp.com"
 
 ```
 
-  
-  
+  ## Raise issue or request feature
+Create : [https://github.com/quangpl/awake-heroku/issues/new](https://github.com/quangpl/awake-heroku/issues/new)
 
-## CLI
-
-*Comming soon*
+## Roadmap
+ - [x] MVP version
+ - [x] Convert to Typescript
+ - [x] Support wakeup multi-applications
+ - [ ] Create CLI
+ - [ ] Remove interval and use a smart mechanism
