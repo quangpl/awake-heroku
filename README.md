@@ -53,7 +53,7 @@ const { AwakeHeroku } = require('awake-heroku');
 
   
 
-AwakeService.add({
+AwakeHeroku.add({
 
 url: "https://your-app-name.herokuapp.com"
 
@@ -69,19 +69,19 @@ const { AwakeHeroku } = require('awake-heroku');
 
   
 
-AwakeService.add({
+AwakeHeroku.add({
 
 url: "https://your-app-name1.herokuapp.com"
 
 })
 
-AwakeService.add({
+AwakeHeroku.add({
 
 url: "https://your-app-name2.herokuapp.com"
 
 })
 
-AwakeService.add({
+AwakeHeroku.add({
 
 url: "https://your-app-name3.herokuapp.com"
 
