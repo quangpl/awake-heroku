@@ -4,7 +4,7 @@
   "description": "A package help your heroku app is always runs ",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
     "prepublish": "tsc"
   },
   "repository": {
@@ -31,10 +31,15 @@
   },
   "homepage": "https://github.com/quangpl/awake-heroku#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "get-port": "^5.1.1",
+    "messenger": "0.0.9",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.0.11",
-    "typescript": "^3.9.5"
+    "@types/node": "^14.14.16",
+    "@types/yargs": "^15.0.12",
+    "ts-node": "^9.1.1",
+    "typescript": "^3.9.7"
   }
 }

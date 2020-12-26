@@ -1,4 +1,2 @@
-import AwakeService from "./services/awakeService";
-export {
-    AwakeService as AwakeHeroku
-};
+import AwakeService from "./services/awake";
+export { AwakeService as AwakeHeroku };
