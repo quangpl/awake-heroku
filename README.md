@@ -47,7 +47,7 @@
 #### Using ES6
 
 ```typescript
-const AwakeHeroku = require('awake-heroku');
+const { AwakeHeroku } = require('awake-heroku');
 
 (async()=>{
 AwakeHeroku.add(https://your-app-nam-1.herokuapp.com)
@@ -63,7 +63,7 @@ AwakeHeroku.start()
 #### Using CommonJS
 
 ```typescript
-import AwakeHeroku from 'awake-heroku';
+import { AwakeHeroku } from 'awake-heroku';
 
 (async()=>{
 AwakeHeroku.add(https://your-app-nam-1.herokuapp.com)
