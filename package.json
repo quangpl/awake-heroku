@@ -32,6 +32,7 @@
   "homepage": "https://github.com/quangpl/awake-heroku#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "forever": "^3.0.4",
     "get-port": "^5.1.1",
     "messenger": "0.0.9",
     "yargs": "^16.2.0"
@@ -39,6 +40,9 @@
   "devDependencies": {
     "@types/node": "^14.14.16",
     "@types/yargs": "^15.0.12",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.17.0",
     "ts-node": "^9.1.1",
     "typescript": "^3.9.7"
   }

@@ -9,10 +9,8 @@ export interface IDataService {
     get: (id: number) => Promise<IAppInfo | undefined>;
     getAll: () => IAppInfo[] | undefined | Promise<IAppInfo[]>;
 }
-
 export interface IAwakeService {
     start: () => Promise<void>;
     stop: () => Promise<void>;
 }
-
-export type IAwakeServiceManager = IDataService & IAwakeService;
+export declare type IAwakeServiceManager = IDataService & IAwakeService;

@@ -1,48 +1,32 @@
-#!/usr/bin/env node
-import { IAppInfo, IAwakeService } from "../types";
+import { AH_DATA_PATH, DEFAULT_HEARTBEAT } from "../utils/constants";
+import DataService from "./data";
 import axios from "axios";
-import { DEFAULT_HEARTBEAT, INTERVAL } from "../utils/constants";
+import { writeFilePromise } from "./native/fs";
 
-export default class AwakeService implements IAwakeService {
-  listApp: IAppInfo[];
-  constructor(_listApp: IAppInfo[]) {
-    this.listApp = _listApp;
-    setInterval(() => {
-      this.listApp.forEach((app: IAppInfo) => {
-        if (
-          app.lastHeartBeat &&
-          Date.now() - app.lastHeartBeat >= DEFAULT_HEARTBEAT
-        ) {
-          this.awake(app);
-          app.lastHeartBeat = Date.now();
-        }
-      });
-    }, INTERVAL);
-  }
-  add(newApp: IAppInfo) {
-    this.listApp.push(
-      Object.assign(newApp, {
-        id: this.listApp.length,
-        lastHeartBeat: Date.now(),
-      })
-    );
-  }
-  remove(id: number) {
-    this.listApp = this.listApp.filter((app: IAppInfo) => app.id !== id);
-  }
-  show(id: number) {
-    const currentApp = this.listApp.filter((app: IAppInfo) => app.id === id);
-    return currentApp.length > 0 ? currentApp[0] : undefined;
-  }
-  showAll() {
-    return this.listApp;
-  }
-  awake(app: IAppInfo) {
-    console.info(`Awake : ${app.url}`);
-    axios.get(app.url).then((err: any) => {
-      if (err) {
-        console.log(err);
-      }
-    });
-  }
+class AwakeService {
+    private interval: any;
+    public async start() {
+        this.interval = setInterval(async () => {
+            const apps = await DataService.getAll();
+            if (apps.length <= 0) {
+                return;
+            }
+            apps.forEach(async (app) => {
+                if (
+                    app.lastHeartBeat &&
+                    Date.now() - app.lastHeartBeat >= DEFAULT_HEARTBEAT
+                ) {
+                    console.info(`Wakeup app : [${app.id}]: ${app.url}`)
+                    await axios.get(app.url);
+                    app.lastHeartBeat = Date.now();
+                    await writeFilePromise(AH_DATA_PATH, JSON.stringify(apps));
+                }
+            })
+        }, DEFAULT_HEARTBEAT)
+    }
+    public stop() {
+        clearInterval(this.interval);
+    }
 }
+
+export default new AwakeService();
