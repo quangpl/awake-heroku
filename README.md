@@ -98,4 +98,6 @@ Create : [https://github.com/quangpl/awake-heroku/issues/new](https://github.com
 
  &check; Prepare structure to create CLI
  
+ &cross; Error Handler
+
  &cross; Create CLI
