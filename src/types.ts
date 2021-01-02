@@ -4,15 +4,15 @@ export interface IAppInfo {
     lastHeartBeat?: number;
 }
 export interface IDataService {
-    add: (appInfo: IAppInfo) => Promise<void>;
+    add: (url: string) => Promise<void>;
     remove: (id: number) => Promise<void>;
     get: (id: number) => Promise<IAppInfo | undefined>;
     getAll: () => IAppInfo[] | undefined | Promise<IAppInfo[]>;
 }
 
-export interface IAwakeService {
+export interface IControlService {
     start: () => Promise<void>;
     stop: () => Promise<void>;
 }
 
-export type IAwakeServiceManager = IDataService & IAwakeService;
+export type IAwakeService = IDataService & IControlService;

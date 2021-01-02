@@ -1,6 +1,6 @@
+import https from "https";
 import { AH_DATA_PATH, DEFAULT_HEARTBEAT } from "../utils/constants";
 import DataService from "./data";
-import axios from "axios";
 import { writeFilePromise } from "./native/fs";
 
 class AwakeService {
@@ -17,9 +17,10 @@ class AwakeService {
                     Date.now() - app.lastHeartBeat >= DEFAULT_HEARTBEAT
                 ) {
                     console.info(`Wakeup app : [${app.id}]: ${app.url}`)
-                    await axios.get(app.url);
+                    await https.get(app.url);
                     app.lastHeartBeat = Date.now();
                     await writeFilePromise(AH_DATA_PATH, JSON.stringify(apps));
+                    console.log("RUN")
                 }
             })
         }, DEFAULT_HEARTBEAT)
