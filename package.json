@@ -2,7 +2,7 @@
   "name": "awake-heroku",
   "version": "2.0.2",
   "description": "A package help your heroku app is always runs ",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "prepublish": "tsc"
