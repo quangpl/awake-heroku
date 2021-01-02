@@ -88,10 +88,14 @@ AwakeHeroku.stop()
 Create : [https://github.com/quangpl/awake-heroku/issues/new](https://github.com/quangpl/awake-heroku/issues/new)
 
 ## Roadmap
- - [x] MVP version
- - [x] Convert to Typescript
- - [x] Support wakeup multi-applications
- - [x] Send HTTP request by lightwieght
- - [x] Prepare structure to create CLI
- - [ ] Create CLI
+ &check; MVP version
+ 
+ &check; Convert to Typescript
 
+ &check; Support wakeup multi-applications
+
+ &check; Send HTTP request by lightwieght
+
+ &check; Prepare structure to create CLI
+ 
+ &cross; Create CLI
