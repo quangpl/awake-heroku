@@ -28,73 +28,76 @@
 
 |Field | Type | Description
 |--|--|--|
-| listApp | IAppInfo[]| List heroku applications (app)
-| add | void | Add new herou app to wakeup
-| remove |void | Remove heroku app and stop wakeup that
-| show |void | Get heroku infomation by id
-| showAll |void | Get all heroku apps
-| awake |void |Wakeup heroku app
+| add | Promise<void> | Add new herou app to wakeup
+| remove |Promise<void> | Remove heroku app and stop wakeup that
+| get |Promise<void> | Get heroku infomation by id
+| getAll | Promise<IAppInfo[]>| List heroku applications (app)
+| start |Promise<void>  | Start wakeup your heroku apps
+| stop |Promise<void>  | Stop wakeup your heroku apps
 
-  
 
 ## Usage
 
   
 
-*Insert under code to index file of your project such as : app.js, index.js, root.js , ...*
+*Insert bellow lines to index file of your project such as : app.js, index.js, root.js , ...*
 
   
 
-#### When you want awake 1 heroku application
+#### Using ES6
 
-```
-
+```typescript
 const { AwakeHeroku } = require('awake-heroku');
 
-  
+(async()=>{
+AwakeHeroku.add(https://your-app-nam-1.herokuapp.com)
+AwakeHeroku.add(https://your-app-name-2.herokuapp.com)
 
-AwakeHeroku.add({
-
-url: "https://your-app-name.herokuapp.com"
-
-})
-
-```
-
-#### When you want awake more heroku applications
+// Start service
+AwakeHeroku.start()
+})();
 
 ```
 
-const { AwakeHeroku } = require('awake-heroku');
 
-  
+#### Using CommonJS
 
-AwakeHeroku.add({
+```typescript
+import { AwakeHeroku } from 'awake-heroku';
 
-url: "https://your-app-name1.herokuapp.com"
+(async()=>{
+AwakeHeroku.add(https://your-app-nam-1.herokuapp.com)
+AwakeHeroku.add(https://your-app-name-2.herokuapp.com)
 
-})
-
-AwakeHeroku.add({
-
-url: "https://your-app-name2.herokuapp.com"
-
-})
-
-AwakeHeroku.add({
-
-url: "https://your-app-name3.herokuapp.com"
-
-})
+// Start service
+AwakeHeroku.start()
+})();
 
 ```
 
-  ## Raise issue or request feature
+#### To stop using AwakeHeroku
+```
+import AwakeHeroku from 'awake-heroku';
+
+// Stop service
+AwakeHeroku.stop()
+})();
+```
+
+  ## Please feel free to submit your issue or request feature
 Create : [https://github.com/quangpl/awake-heroku/issues/new](https://github.com/quangpl/awake-heroku/issues/new)
 
 ## Roadmap
- - [x] MVP version
- - [x] Convert to Typescript
- - [x] Support wakeup multi-applications
- - [ ] Create CLI
- - [ ] Remove interval and use a smart mechanism
+ &check; MVP version
+ 
+ &check; Convert to Typescript
+
+ &check; Support wakeup multi-applications
+
+ &check; Send HTTP request by lightwieght
+
+ &check; Prepare structure to create CLI
+ 
+ &cross; Error Handler
+
+ &cross; Create CLI

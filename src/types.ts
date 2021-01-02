@@ -3,11 +3,16 @@ export interface IAppInfo {
     url: string;
     lastHeartBeat?: number;
 }
-export interface IAwakeService {
-    listApp: IAppInfo[];
-    add: (appInfo: IAppInfo) => void;
-    remove: (id: number) => void;
-    show: (id: number) => IAppInfo | undefined;
-    showAll: () => IAppInfo[] | undefined;
-    awake: (appInfo: IAppInfo) => void;
+export interface IDataService {
+    add: (url: string) => Promise<void>;
+    remove: (id: number) => Promise<void>;
+    get: (id: number) => Promise<IAppInfo | undefined>;
+    getAll: () => IAppInfo[] | undefined | Promise<IAppInfo[]>;
 }
+
+export interface IControlService {
+    start: () => Promise<void>;
+    stop: () => Promise<void>;
+}
+
+export type IAwakeService = IDataService & IControlService;
