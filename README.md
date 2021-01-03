@@ -50,11 +50,11 @@
 const { AwakeHeroku } = require('awake-heroku');
 
 (async()=>{
-AwakeHeroku.add(https://your-app-nam-1.herokuapp.com)
-AwakeHeroku.add(https://your-app-name-2.herokuapp.com)
+await AwakeHeroku.add("https://your-app-nam-1.herokuapp.com");
+await AwakeHeroku.add("https://your-app-name-2.herokuapp.com");
 
 // Start service
-AwakeHeroku.start()
+await AwakeHeroku.start();
 })();
 
 ```
@@ -66,22 +66,23 @@ AwakeHeroku.start()
 import { AwakeHeroku } from 'awake-heroku';
 
 (async()=>{
-AwakeHeroku.add(https://your-app-nam-1.herokuapp.com)
-AwakeHeroku.add(https://your-app-name-2.herokuapp.com)
+await AwakeHeroku.add("https://your-app-nam-1.herokuapp.com");
+await AwakeHeroku.add("https://your-app-name-2.herokuapp.com");
 
 // Start service
-AwakeHeroku.start()
+await AwakeHeroku.start()
 })();
 
 ```
 
 #### To stop using AwakeHeroku
-```
+```typescript
 import AwakeHeroku from 'awake-heroku';
-
+(async()=>{
 // Stop service
-AwakeHeroku.stop()
+await AwakeHeroku.stop()
 })();
+
 ```
 
   ## Please feel free to submit your issue or request feature
