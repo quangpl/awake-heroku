@@ -1,18 +1,18 @@
 export interface IAppInfo {
-    id?: number;
-    url: string;
-    lastHeartBeat?: number;
+  id?: number;
+  url: string;
+  lastHeartBeat?: number;
 }
 export interface IDataService {
-    add: (url: string) => Promise<void>;
-    remove: (id: number) => Promise<void>;
-    get: (id: number) => Promise<IAppInfo | undefined>;
-    getAll: () => IAppInfo[] | undefined | Promise<IAppInfo[]>;
+  add: (url: string) => void;
+  remove: (id: number) => void;
+  get: (id: number) => IAppInfo | undefined;
+  getAll: () => IAppInfo[] | undefined;
 }
 
 export interface IControlService {
-    start: () => Promise<void>;
-    stop: () => Promise<void>;
+  start: () => void;
+  stop: () => void;
 }
 
 export type IAwakeService = IDataService & IControlService;
